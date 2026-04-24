@@ -1,6 +1,3 @@
-import random
-import time
-
 # Bubble Sort
 def bubble_sort(arr):
     n = len(arr)
@@ -40,3 +37,4 @@ def merge(left, right):
     result.extend(left[i:])
     result.extend(right[j:])
     return result
+
