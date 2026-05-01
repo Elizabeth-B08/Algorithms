@@ -1,24 +1,26 @@
 # Bubble Sort
-def bubble_sort(arr):
-    n = len(arr)
+array1 = [1, 3, 4, 7, 5, 10, 9, 8, 6]
+array2 = [1, 6, 4, 7, 5, 10, 9, 8, 5]
+def bubble_sort(array1):
+    n = len(array1)
     for i in range(n):
         swapped = False
         for j in range(0, n - i - 1):
-            if arr[j] > arr[j + 1]:
-                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+            if array1[j] > array1[j + 1]:
+                array1[j], array1[j + 1] = array1[j + 1], array1[j]
                 swapped = True
         if not swapped:
             break
-    return arr
+    return array1
 
 # Merge Sort
-def merge_sort(arr):
-    if len(arr) <= 1:
-        return arr
+def merge_sort(array2):
+    if len(array2) <= 1:
+        return array2
 
-    mid = len(arr) // 2
-    left = merge_sort(arr[:mid])
-    right = merge_sort(arr[mid:])
+    mid = len(array2) // 2
+    left = merge_sort(array2[:mid])
+    right = merge_sort(array2[mid:])
 
     return merge(left, right)
 
