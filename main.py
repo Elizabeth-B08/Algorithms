@@ -11,10 +11,11 @@ def bubble_sort(array):
                 swapped = True
         if not swapped:
             break
-    return array1
+    return array
 
-bubble_sort(array1)
-bubble_sort(array2)
+print("Bubble sort: ")
+print(bubble_sort((array1.copy())))
+print(bubble_sort((array2.copy())))
 
 # Merge Sort
 def merge_sort(array):
