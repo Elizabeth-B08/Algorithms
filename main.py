@@ -28,9 +28,6 @@ def merge_sort(array):
 
     return merge(left, right)
 
-merge_sort(array1)
-merge_sort(array2)
-
 def merge(left, right):
     result = []
     i = j = 0
@@ -47,3 +44,6 @@ def merge(left, right):
     result.extend(right[j:])
     return result
 
+print("\nMerge sort: ")
+print(merge_sort(array1))
+print(merge_sort(array2))
