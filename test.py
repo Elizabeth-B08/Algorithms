@@ -4,7 +4,7 @@ Based on the report by Elizabeth Balogun
 
 """
 
-import random
+
 import time
 
 
