@@ -1,49 +1,40 @@
-# Bubble Sort
-array1 = [1, 3, 4, 7, 5, 10, 9, 8, 6]
-array2 = [1, 6, 4, 7, 5, 10, 9, 8, 5]
-def bubble_sort(array):
-    n = len(array)
-    for i in range(n):
-        swapped = False
-        for j in range(0, n - i - 1):
-            if array[j] > array[j + 1]:
-                array[j], array[j + 1] = array[j + 1], array[j]
-                swapped = True
-        if not swapped:
-            break
-    return array
 
-print("Bubble sort: ")
-print(bubble_sort((array1.copy())))
-print(bubble_sort((array2.copy())))
+# -----------------------------
+# Main Program
+# -----------------------------
+def main():
 
-# Merge Sort
-def merge_sort(array):
-    if len(array) <= 1:
-        return array
+    dataset_sizes = [100, 1000, 10000]
 
-    mid = len(array) // 2
-    left = merge_sort(array[:mid])
-    right = merge_sort(array[mid:])
+    print("\nSorting Algorithms Performance Comparison")
+    print("-" * 55)
 
-    return merge(left, right)
+    results = []
 
-def merge(left, right):
-    result = []
-    i = j = 0
+    for size in dataset_sizes:
 
-    while i < len(left) and j < len(right):
-        if left[i] < right[j]:
-            result.append(left[i])
-            i += 1
-        else:
-            result.append(right[j])
-            j += 1
+        # Generate random dataset
+        data = [random.randint(1, 100000) for _ in range(size)]
 
-    result.extend(left[i:])
-    result.extend(right[j:])
-    return result
+        # Test Merge Sort
+        merge_time = test_algorithm(merge_sort, data)
 
-print("\nMerge sort: ")
-print(merge_sort(array1))
-print(merge_sort(array2))
+        # Test Bubble Sort
+        bubble_time = test_algorithm(bubble_sort, data)
+
+        # Store results
+        results.append((size, merge_time, bubble_time))
+
+    # Print results table
+    print(f"{'Dataset Size':<15}{'Merge Sort (s)':<20}{'Bubble Sort (s)':<20}")
+    print("-" * 55)
+
+    for size, merge_time, bubble_time in results:
+        print(f"{size:<15}{merge_time:<20.6f}{bubble_time:<20.6f}")
+
+    print("\nTesting Complete.")
+
+
+# Run program
+if __name__ == "__main__":
+    main()
