@@ -2,22 +2,15 @@
 Sorting Algorithms Performance Comparison
 Based on the report by Elizabeth Balogun
 
-This program:
-1. Implements Bubble Sort and Merge Sort without built-in sorting
-2. Generates random datasets
-3. Tests performance on different dataset sizes
-4. Runs each algorithm 5 times
-5. Calculates average execution times
-6. Displays results in a table
 """
 
 import random
 import time
 
 
-# -----------------------------
+
 # Bubble Sort
-# -----------------------------
+
 def bubble_sort(arr):
     n = len(arr)
 
@@ -40,9 +33,9 @@ def bubble_sort(arr):
     return arr
 
 
-# -----------------------------
+
 # Merge Sort
-# -----------------------------
+
 def merge_sort(arr):
 
     # Base case
