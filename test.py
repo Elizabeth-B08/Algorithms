@@ -6,7 +6,7 @@ Based on the report by Elizabeth Balogun
 
 
 import time
-
+import random
 
 
 # Bubble Sort
@@ -100,3 +100,33 @@ def test_algorithm(algorithm, data, trials=5):
 
     # Return average execution time
     return total_time / trials
+
+# Main Program
+def main():
+
+    dataset_sizes = [100, 1000, 3000]
+
+    print("\nSorting Algorithms Performance Comparison")
+    print("-" * 55)
+
+    results = []
+
+    for size in dataset_sizes:
+
+        data = [random.randint(1, 100000) for _ in range(size)]
+
+        merge_time = test_algorithm(merge_sort, data)
+        bubble_time = test_algorithm(bubble_sort, data)
+
+        results.append((size, merge_time, bubble_time))
+
+    print(f"{'Dataset Size':<15}{'Merge Sort (s)':<20}{'Bubble Sort (s)':<20}")
+    print("-" * 55)
+
+    for size, merge_time, bubble_time in results:
+        print(f"{size:<15}{merge_time:<20.6f}{bubble_time:<20.6f}")
+
+    print("\nTesting Complete.")
+
+if __name__ == "__main__":
+    main()
